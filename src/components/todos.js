@@ -1,24 +1,22 @@
 import React from 'react'
-import Todo from './todo'
+import Todo from './Todo'
 
-const todos = (props) => {
+const Todos = (props) => {
     let myStyle = {
-        minHeight: "100vh",
-        margin: "10px 0"
+        minHeight: "70vh",
+        margin: "40px auto "
     }
     return (
 
-        <div className="container" style={myStyle}>
+        <div className="container my-3" style={myStyle}>
             <h3 className="text-center my-3">Todos List</h3>
             {props.todos.length === 0 ? "No Todos to Show" :
 
                 props.todos.map((e) => {
-                    return
-                    <>
-                        {
-                            <Todo todo={e} key={e.sno} onDelete={props.onDelete} />
-                        }
-                    </>
+                    return (<Todo todo={e} key={e.sno} onDelete={() => props.onDelete(e)} />
+
+                    )
+
                 })
 
             }
@@ -27,4 +25,4 @@ const todos = (props) => {
     )
 }
 
-export default todos
+export default Todos
